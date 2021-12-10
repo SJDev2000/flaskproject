@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+    <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href={{ url_for('static', filename='qfc-dark.css') }} />
+    <!-- <link rel="stylesheet" href="qfc-light.css"> -->
+
+    </head>
+
+    <body>
+    <div class="qfc-container">
+        <h2>Edit Details for Product Id: {{product_id}}</h2>
+        <label></label>
+        <form action="#" method="post">
+        <div>
+           
+            <div>
+                <input name="name" placeholder="Product Name" type="text" >
+            </div>
+
+            <div>
+                <input name="price" placeholder="Price" type="number" >
+            </div>
+           
+            <div>
+            <!-- <label>Product Type</label> -->
+            <select name="category">
+                            <option value="Laptop" selected>Laptop</option>
+                            <option value="Mobile">Mobile</option>
+                            <option value="Other">Others</option>
+                        </select>
+            </div>
+            
+            <div>
+            <!-- <label>Product Description</label> -->
+            <div>
+                <textarea name="description" placeholder="Type Product Description here"></textarea>
+            </div>
+            </div>
+            <div>
+                <input name="image" placeholder="Link for Item Image" type="text">
+            </div>
+            <div>
+            <button type="submit">Submit</button>
+            </div>
+        </div>
+        </form>
+    </div>
+    </body>
+    
+</html>

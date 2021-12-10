@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Animated Form</title>
+        <script src="https://kit.fontawesome.com/655443928f.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{{url_for('static', filename= 'style.css')}}">
+    </head>
+    <body>
+    <h1 style="text-align:center; margin-top:20vh;">Register a new User</h1>
+        <form action = "#" method="post" id = "form_reg">
+            <div class="field_username active">
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" placeholder="username" required />
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="field_email innactive">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="email" placeholder="email" required />
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="field_password innactive">
+                <i class="fas fa-key"></i>
+                <input type="password" name="password" placeholder="password" required />
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <!-- <div class="field_end innactive">
+                <i class="fas fa-heart"></i>
+                <p>All set.</p>
+                <i class="fas fa-heart"></i>
+            </div> -->
+        </form>
+        <script src = "{{url_for('static', filename= 'script.js')}}"></script>
+    </body>
+</html>

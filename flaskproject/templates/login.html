@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Animated Form</title>
+        <script src="https://kit.fontawesome.com/655443928f.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{{url_for('static', filename= 'style_login.css')}}">
+    </head>
+    <body>
+        <h1>User Login</h1>
+        <form action = "#" method="post" id = "form_reg">
+            <div class="user">
+                <i class="fas fa-user fa-lg ico"></i>
+                <input class="field_username" type="text" name="username" placeholder="username" required />
+                <i class="fas fa-arrow-right ico"></i>
+            </div>
+            <div class="pass">
+                <i class="fas fa-key fa-lg ico"></i>
+                <input class="field_password" type="password" name="password" placeholder="password" required />
+                <i class="fas fa-arrow-right ico"></i>
+            </div>
+            <div>
+                <button class="btn" type="submit">Submit</button>
+            </div>
+            <!-- <div class="field_end innactive">
+                <i class="fas fa-heart"></i>
+                <p>All set.</p>
+                <i class="fas fa-heart"></i>
+            </div> -->
+        </form>
+        <!-- <script src = "{{url_for('static', filename= 'script.js')}}"></script> -->
+    </body>
+</html>

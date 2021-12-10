@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>Flask-SQLAlchemy</title>
+    </head>
+    <body>
+        {%for product in products%}
+        <h1>{{product.name}}</h1>
+        <p>{{product.description}}</p>
+        {%endfor%}
+    </body>
+</html>

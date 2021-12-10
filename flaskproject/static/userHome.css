@@ -1,0 +1,52 @@
+#log{
+   margin-left: 50vw;
+   display: flex;
+   justify-content: space-between;
+   transition: transform .2s;
+}
+
+#link{
+    text-decoration: none;
+    color: white;
+}
+
+#log:hover{
+    transform: scale(1);
+}
+
+li:hover{
+    transform: scale(1.2);
+}
+
+#item{
+ border: none;
+ background-color: rgb(0,0,0); /* Fallback color */
+ background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+ color: white;
+ font-weight: bold;
+ z-index: 2;
+ transition: transform .2s;
+}
+
+#item:hover{
+    background-color: rgba(0,0,0, 0.8);
+}
+
+#photo{
+    border:2px solid #fff;
+    -moz-box-shadow: 3px 3px 5px #ccc;
+    -webkit-box-shadow: 3px 3px 5px #ccc;
+    box-shadow: 3px 3px 5px #ccc;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    z-index: 10;
+    transition: transform .2s;
+}
+
+#photo:hover {
+    transform: scale(1.2);
+}
