@@ -18,20 +18,50 @@ def home():
 @app.route('/mobiles')
 @token_required
 def mobile(current_user):
+    cart=Cart.query.all()
+    users=UserDetails.query.all()
+    for u in users:
+        if current_user == u.email:
+            uid=u.id
+    cart2=[]
+    for c in cart:
+        if uid == c.user_id:
+            cart2.append(c)
+            
     products = Products.query.all()
-    return render_template('mobiles.html',products = products,data=current_user)
+    return render_template('mobiles.html',products = products,data=current_user,cart=cart2)
 
 @app.route('/others')
 @token_required
 def other(current_user):
+    cart=Cart.query.all()
+    users=UserDetails.query.all()
+    for u in users:
+        if current_user == u.email:
+            uid=u.id
+    cart2=[]
+    for c in cart:
+        if uid == c.user_id:
+            cart2.append(c)
+            
     products = Products.query.all()
-    return render_template('others.html',products = products,data=current_user)
+    return render_template('others.html',products = products,data=current_user,cart=cart2)
 
 @app.route('/laptops')
 @token_required
 def laptop(current_user):
+    cart=Cart.query.all()
+    users=UserDetails.query.all()
+    for u in users:
+        if current_user == u.email:
+            uid=u.id
+    cart2=[]
+    for c in cart:
+        if uid == c.user_id:
+            cart2.append(c)
+            
     products = Products.query.all()
-    return render_template('laptops.html',products = products,data=current_user)
+    return render_template('laptops.html',products = products,data=current_user,cart=cart2)
     
 @app.route('/logout')
 @token_required
@@ -82,10 +112,18 @@ def login():
 @app.route('/dashboard')
 @token_required
 def dashboard(current_user):
+    cart=Cart.query.all()
+    users=UserDetails.query.all()
+    for u in users:
+        if current_user == u.email:
+            uid=u.id
+    cart2=[]
+    for c in cart:
+        if uid == c.user_id:
+            cart2.append(c)
+            
     products = Products.query.all()
-    
-    return render_template('dashboard.html', data=current_user,products=products)
-    
+    return render_template('dashboard.html',products = products,data=current_user,cart=cart2)
 
 @app.route('/addProduct', methods=["GET","POST"])
 @token_required
@@ -138,6 +176,49 @@ def addCart(current_user,product_id):
     
     return redirect(url_for('dashboard'))
     
+@app.route('/addCartlaptop/<product_id>')
+@token_required
+def addCart1(current_user,product_id):
+    user=UserDetails.query.all()
+    for u in user:
+        if u.email==current_user:
+            user_id=u.id
+    cart = Cart.query.filter_by(product_id=product_id).first()
+    new_item=Cart(user_id=user_id,product_id=product_id,qty=1)
+    db.session.add(new_item)
+    db.session.commit()
+    
+    return redirect(url_for('laptops'))
+
+@app.route('/addCartmobile/<product_id>')
+@token_required
+def addCart2(current_user,product_id):
+    user=UserDetails.query.all()
+    for u in user:
+        if u.email==current_user:
+            user_id=u.id
+    cart = Cart.query.filter_by(product_id=product_id).first()
+    new_item=Cart(user_id=user_id,product_id=product_id,qty=1)
+    db.session.add(new_item)
+    db.session.commit()
+    
+    return redirect(url_for('mobiles'))
+
+@app.route('/addCartother/<product_id>')
+@token_required
+def addCart3(current_user,product_id):
+    user=UserDetails.query.all()
+    for u in user:
+        if u.email==current_user:
+            user_id=u.id
+    cart = Cart.query.filter_by(product_id=product_id).first()
+    
+    new_item=Cart(user_id=user_id,product_id=product_id,qty=1)
+    db.session.add(new_item)
+    db.session.commit()
+    
+    return redirect(url_for('others'))
+
 @app.route('/cart')
 @token_required
 def cart(current_user):
@@ -152,6 +233,24 @@ def cart(current_user):
         count = count + 1
         price = price + i.product.price
     return render_template('cart.html',items=items,count=count,price=price)
+
+@app.route('/dashboardnew')
+@token_required
+def dashnew(current_user):
+    
+    cart=Cart.query.all()
+    
+    users=UserDetails.query.all()
+    for u in users:
+        if current_user == u.email:
+            uid=u.id
+    cart2=[]
+    for c in cart:
+        if uid == c.user_id:
+            cart2.append(c)
+            
+    products = Products.query.all()
+    return render_template('dashboard.html',products = products,data=current_user,cart=cart2)
 
 
 # @app.route('/editForm/<product_id>',methods=["GET","POST"])

@@ -58,6 +58,11 @@
         <img src="{{product.image}}" width="220px" height="180px" id="photo">
         <div class="cart">
         <p>₹{{product.price}}</p>
+        {% for c in cart %}
+        {%if product.id == c.product.id %}
+        (Added to cart)
+        {%endif%}
+        {% endfor %}
         <a href="/addCart/{{product.id}}"><button class="btn btn-light">Add to Cart</button></a>
         </div>
         </div>
