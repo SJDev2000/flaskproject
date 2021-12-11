@@ -1,7 +1,41 @@
-<h1 style="text-align:center;">Thanks For Purchasing !</h1> <br>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> Thanks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Corinthia&family=Space+Mono&display=swap" rel="stylesheet">
 
-<a href="/dashboardnew" style="text-decoration:none">
-<div style=" margin-left:10vw; width:80vw;  height: 50vh;  padding: 5px;  border: 1px solid blue;  background-color: green;">
-<h1 style="color:white; padding:12.5vh; text-align:center;">Go back to HomepPage</h1>
-</div>
-</a>
+<link rel="stylesheet" href={{ url_for('static', filename='thanks.css') }} />
+</head>
+
+<body>
+
+  
+            <div class="box">
+                <header class="site-header" id="header">
+                    <h1 class="site-header__title" data-lead-id="site-header-title">Order Confirmed!</h1>
+                </header>
+            
+                <div class="main-content">
+                    <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
+                    <p class="main-content__body" data-lead-id="main-content-body">
+                        Your order is on the way...!
+                        Thanks so much for your order! I hope you enjoy your new purchase!
+                        Happy Shopping ! Visit us Again:-)
+                    </p>
+                </div>
+
+                <a href="/dashboardnew" style="text-decoration:none">
+                    <h1 style="color:rgb(8, 1, 1);  text-align:center;"> Click on Me:-)</h1>
+               <div class="pyro">
+                 <div class="before"></div>
+                 <div class="after"></div>
+               </div>
+            </div>
+        
+
+</body>
+</html>

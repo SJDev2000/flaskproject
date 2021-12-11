@@ -30,16 +30,9 @@
           <a class="nav-link" href="/others">Others</a>
         </li>
         <li id="log">
-        {%if data==null%}
-        
-        <a href="/login"><button type="submit" class="btn btn-dark">Login</button></a>
-        <a href="/register"><button type="submit" class="btn btn-dark">Register</button></a>
-        
-        {%else%}
-        <a href="/cart"><button type="submit" class="btn btn-dark" style="margin-left:20px;">Cart</button></a>
-        <h5 style="margin-top:10px;"> Welcome </h1>
-        <a href="/logout"><button type="submit" class="btn btn-dark" style="margin-left:20px;">Logout</button></a>
-        {%endif%}
+          <h5 style="margin-top:10px;margin-right:20px;"> Welcome </h1>
+          <a href="/cart"><i class="fa fa-cart-plus" aria-hidden="true" style="font-size:48px;margin-left:20px; "></i></a>
+          <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true" style="font-size:48px;margin-left:20px;"></i></a>
         </li>
       </ul>
     </div>

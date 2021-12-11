@@ -4,7 +4,7 @@ from sqlalchemy.orm import backref
 from flaskproject import db
 
 class UserDetails(db.Model):
-    __tablename__="userdetails"
+    __tablename__="user_details"
     id = db.Column(db.Integer, primary_key=True)
     carts=db.relationship('Cart',backref='user',lazy="dynamic")
     username = db.Column(db.String(120), unique = False)
@@ -36,6 +36,6 @@ class Products(db.Model):
 
 class Cart(db.Model):
     id=db.Column(db.Integer, primary_key=True)
-    user_id=db.Column(db.Integer,db.ForeignKey("userdetails.id"))
+    user_id=db.Column(db.Integer,db.ForeignKey("user_details.id"))
     product_id=db.Column(db.Integer,db.ForeignKey("products.id"))
     qty=db.Column(db.Integer, unique=False)
