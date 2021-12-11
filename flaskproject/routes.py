@@ -192,12 +192,24 @@ def addCart1(current_user,product_id):
     for u in user:
         if u.email==current_user:
             user_id=u.id
-    cart = Cart.query.filter_by(product_id=product_id).first()
+    #cart = Cart.query.filter_by(product_id=product_id).first()
     new_item=Cart(user_id=user_id,product_id=product_id,qty=1)
     db.session.add(new_item)
     db.session.commit()
     
-    return redirect(url_for('laptops'))
+    cart=Cart.query.all()
+    users=UserDetails.query.all()
+    for u in users:
+        if current_user == u.email:
+            uid=u.id
+    cart2=[]
+    for c in cart:
+        if uid == c.user_id:
+            cart2.append(c)
+            
+    products = Products.query.all()
+    return render_template('laptops.html',products = products,data=current_user,cart=cart2)
+    #return redirect(url_for('laptops'))
 
 @app.route('/addCartmobile/<product_id>')
 @token_required
@@ -206,12 +218,25 @@ def addCart2(current_user,product_id):
     for u in user:
         if u.email==current_user:
             user_id=u.id
-    cart = Cart.query.filter_by(product_id=product_id).first()
+    #cart = Cart.query.filter_by(product_id=product_id).first()
     new_item=Cart(user_id=user_id,product_id=product_id,qty=1)
     db.session.add(new_item)
     db.session.commit()
     
-    return redirect(url_for('mobiles'))
+    cart=Cart.query.all()
+    users=UserDetails.query.all()
+    for u in users:
+        if current_user == u.email:
+            uid=u.id
+    cart2=[]
+    for c in cart:
+        if uid == c.user_id:
+            cart2.append(c)
+            
+    products = Products.query.all()
+    return render_template('mobiles.html',products = products,data=current_user,cart=cart2)
+    #return redirect(url_for('mobiles'))
+    
 
 @app.route('/addCartother/<product_id>')
 @token_required
@@ -220,13 +245,25 @@ def addCart3(current_user,product_id):
     for u in user:
         if u.email==current_user:
             user_id=u.id
-    cart = Cart.query.filter_by(product_id=product_id).first()
+    #cart = Cart.query.filter_by(product_id=product_id).first()
     
     new_item=Cart(user_id=user_id,product_id=product_id,qty=1)
     db.session.add(new_item)
     db.session.commit()
     
-    return redirect(url_for('others'))
+    cart=Cart.query.all()
+    users=UserDetails.query.all()
+    for u in users:
+        if current_user == u.email:
+            uid=u.id
+    cart2=[]
+    for c in cart:
+        if uid == c.user_id:
+            cart2.append(c)
+            
+    products = Products.query.all()
+    return render_template('others.html',products = products,data=current_user,cart=cart2)
+    #return redirect(url_for('others'))
 
 @app.route('/cart')
 @token_required
@@ -294,4 +331,3 @@ def dashnew(current_user):
 #                 return render_template('admin_panel.html')
     
 #     return render_template("editForm.html",product_id=product_id)
-
