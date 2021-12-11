@@ -155,8 +155,17 @@ def admin():
 
 
 @app.route('/shipping/<price>',methods=["GET","POST"])
-def shipping(price):
+@token_required
+def shipping(current_user,price):
     if request.method=="POST":
+        user=UserDetails.query.all()
+        for u in user:
+            if u.email==current_user:
+                user_id=u.id
+        items = Cart.query.filter_by(user_id=user_id)
+        for i in items:
+            db.session.delete(i)
+        db.session.commit()
         return render_template("Thanks.html")
         
     
